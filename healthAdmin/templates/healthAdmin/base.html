@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+   <head>
+      <meta charset="utf-8" />
+      <title>{% block title %} {%endblock title%}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta content="Responsive bootstrap 4 admin template" name="description" />
+      <meta content="Coderthemes" name="author" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Table datatable css -->
+      <link href="{% static 'assets/libs/datatables/dataTables.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/libs/datatables/buttons.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/libs/datatables/fixedHeader.bootstrap4.min.html'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/libs/datatables/responsive.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/libs/datatables/scroller.bootstrap4.min.css'%}" rel="stylesheet" type="text/css" />
+      <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico'%}">
+      <link href="{% static 'assets/libs/sweetalert2/sweetalert2.min.css'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/css/bootstrap.min.css'%}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+      <link href="{% static 'assets/css/icons.min.css'%}" rel="stylesheet" type="text/css" />
+      <link href="{% static 'assets/css/app.min.css'%}" rel="stylesheet" type="text/css" id="app-stylesheet" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+   </head>
+   <body>
+      <div id="wrapper">
+         <div class="navbar-custom" style="background-color: darkgray;">
+         </div>
+         <div class="left-side-menu">
+            <div class="slimscroll-menu">
+               <div id="sidebar-menu">
+                  <div class="user-box">
+                     <div class="float-left">
+                         <img src="{% static 'images/doc.png'%}" alt="" class="avatar-md rounded-circle">
+                     </div>
+                     <div class="user-info">
+                         <div class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                     <i class="mdi mdi-chevron-down"></i>
+                                                     Mithu
+                                             </a>
+                                             
+                              <ul class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 29px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                 <li><a href="" class="dropdown-item"><i class="mdi mdi-face-profile mr-2"></i> Profile<div class="ripple-wrapper"></div></a></li>
+                                 <li><a href="" class="dropdown-item"><i class="mdi mdi-power-settings mr-2"></i> Logout</a></li>
+                              </ul>    
+                         </div>
+                         <p class="font-13 text-muted m-0">Administrator</p>
+                     </div>
+                     </div>
+                  <br>
+                  <ul class="metismenu" id="side-menu">
+                     <li>
+                        <a href="{% url 'healthAdmin:dashboard' %}" class="waves-effect">
+                        <i class="mdi mdi-home"></i>
+                        <span> Dashboard </span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{% url 'doctorapp:all_doctor' %}" class="waves-effect">
+                        <i class=" ion ion-md-cube"></i>
+                        <span>Doctor</span>                     
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{% url 'doctorPanel:doc_panel' %}" class="waves-effect">
+                        <i class=" ion ion-md-options"></i>
+                        <span>Doctor-Prescribe-Panel</span>                     
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{% url 'patientapp:all_patient' %}" class="waves-effect">
+                        <i class="ion ion-md-contacts"></i>
+                        <span>Patient </span>                     
+                        </a>
+                     </li>
+                     <!-- <li>
+                        <a href="{% url 'healthapp:add_prescription' %}" class="waves-effect">
+                        <i class=" ion ion-md-options"></i>
+                        <span>Prescription </span>                     
+                        </a>
+                     </li> -->
+               
+                    
+                     <li>
+                        <a href="" class="waves-effect">
+                        <i class=" fab fa-bandcamp"></i>
+                        <span> LogOut  </span>
+                        </a>
+                     </li>
+                  </ul>
+
+               </div>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+         <div class="content-page">
+            <div class="content">
+               
+                  {% block content %}
+                  {%endblock content%}
+               
+            </div>
+            <footer class="footer">
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-md-12">
+                        Copyright © 2023-2024 Mithu | All Rights Reserved
+
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </div>
+      <script>//datatable code start
+         $('#datatable').dataTable( {
+           "ordering": false,
+           "searching": true,
+         } );
+         //message auto hide
+         $(document).ready(function(){
+           $('.alert_primary').fadeOut(5000);
+         });
+         
+         </script>
+
+      <script src="{% static 'assets/js/vendor.min.js'%}"></script>
+      <script src="{% static 'assets/libs/moment/moment.min.js'%}"></script>
+      <script src="{% static 'assets/libs/jquery-scrollto/jquery.scrollTo.min.js'%}"></script>
+      <script src="{% static 'assets/libs/sweetalert2/sweetalert2.min.js'%}"></script>
+      <script src="{% static 'assets/js/pages/jquery.chat.js'%}"></script>
+      <script src="{% static 'assets/js/pages/jquery.todo.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.time.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.tooltip.min.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.resize.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.pie.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.selection.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.stack.js'%}"></script>
+      <script src="{% static 'assets/libs/flot-charts/jquery.flot.crosshair.js'%}"></script>
+      <!-- third party js -->
+      <script src="{% static 'assets/libs/datatables/jquery.dataTables.min.js'%}"></script>
+      <script src="{% static 'assets/libs/datatables/dataTables.bootstrap4.min.js'%}"></script>
+
+      <script src="{% static 'assets/libs/datatables/dataTables.responsive.min.js'%}"></script>
+      <script src="{% static 'assets/libs/datatables/responsive.bootstrap4.min.js'%}"></script>
+
+      <script src="{% static 'assets/libs/datatables/dataTables.buttons.min.js'%}"></script>
+      <script src="{% static 'assets/libs/datatables/buttons.bootstrap4.min.js'%}"></script>
+
+      <script src="{% static 'assets/libs/jszip/jszip.min.js'%}"></script>
+      <script src="{% static 'assets/libs/pdfmake/pdfmake.min.js'%}"></script>
+      <script src="{% static 'assets/libs/pdfmake/vfs_fonts.js'%}"></script>
+
+      <script src="{% static 'assets/libs/datatables/buttons.html5.min.js'%}"></script>
+      <script src="{% static 'assets/libs/datatables/buttons.print.min.js'%}"></script>
+
+      <script src="{% static 'assets/libs/datatables/dataTables.fixedHeader.min.html'%}"></script>
+      <script src="{% static 'assets/libs/datatables/dataTables.keyTable.min.js'%}"></script>
+      <script src="{% static 'assets/libs/datatables/dataTables.scroller.min.js'%}"></script>
+      
+      <!-- Dashboard init JS -->
+      <script src="{% static 'assets/js/pages/dashboard.init.js'%}"></script>
+        <!-- Datatables init -->
+        <script src="{% static 'assets/js/pages/datatables.init.js'%}"></script>
+      <!-- App js -->
+      <script src="{% static 'assets/js/app.min.js'%}"></script>
+      <script src="{% static 'js/custom.js'%}"></script>
+   </body>
+   <!-- Mirrored from coderthemes.com/moltran/layouts/blue-vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Feb 2021 12:04:25 GMT -->
+</html>

@@ -1,0 +1,74 @@
+{% extends 'healthAdmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-12">
+          <div class="page-title-box">
+
+             <div class="clearfix"></div>
+          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-lg-12">
+          <div class="card">
+             <div class="card-header">
+                <div class="row">
+                   <div class="col-md-8 card_header_title">
+                      <i class="fab fa-gg-circle"></i>
+                      View Doctor Information
+                   </div>
+                   <div class="col-md-4 text-right card_header_btn">
+                      <a class="btn btn-sm btn-secondary" href="{% url 'doctorapp:all_doctor' %}">
+                      <i class="fa fa-plus-circle"></i>
+                      All Doctors
+                      </a>
+                   </div>
+                </div>
+                <div class="clr"></div>
+             </div>
+             <div class="card-body">
+                <div class="row">
+                   <div class="col-md-2 col-sm-2 col-2"></div>
+                   <div class="col-md-8 col-sm-8 col-8">
+                      <table class="table table-bordered table-striped custom_view_table">
+                        <tr>
+                           <td>Doctor Id</td>
+                           <td>:</td>
+                           <td>{{doctor_obj.doctor_id}}</td>
+                        </tr>
+                         <tr>
+                            <td>Doctor Name</td>
+                            <td>:</td>
+                            <td>{{doctor_obj.doctor_name}} </td>
+                         </tr>
+                         <tr>
+                            <td>Designation</td>
+                            <td>:</td>
+                            <td>{{doctor_obj.doctor_designation}}</td>
+                         </tr>
+                         <tr>
+                            <td>Contact No</td>
+                            <td>:</td>
+                            <td>{{doctor_obj.doctor_contact_number}}</td>
+                         </tr>
+                        
+                      </table>
+                   </div>
+                   <div class="col-md-2 col-sm-2 col-2"></div>
+                </div>
+             </div>
+             <div class="card-footer">
+                <!-- <div class="btn-group">
+                   <button type="button" class="btn btn-purple waves-effect">PRINT</button>
+                   <button type="button" class="btn btn-dark waves-effect">PDF</button>
+                   <button type="button" class="btn btn-pink waves-effect">EXEL</button>
+                   <button type="button" class="btn btn-success waves-effect">CSV</button>
+                </div> -->
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}

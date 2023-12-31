@@ -1,0 +1,90 @@
+{% extends 'doctorPanel/docpanel.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title"></h4>
+                <div class="page-title-right">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8 card_header_title">
+                            <i class="fab fa-gg-circle"></i>
+                            All Prescription
+                        </div>
+                        <div class="col-md-4 text-right card_header_btn">
+                            <a class="btn btn-sm btn-secondary" href="{% url 'healthapp:add_prescription' %}">
+                                <i class="fa fa-plus-circle"></i>
+                                Add Prescription
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <table id="allTableInfo" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead class="">
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Medicine</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Diagnostic Center</th>
+                                        <th>Manage</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for data in prescription %}
+                                    <tr>
+                                        <td>{{data.patient.patient_name}}</td>
+                                        <td>{{data.drug_name}}</td>
+                                        <td>{{data.start_date}}</td>
+                                        <td>{{data.end_date}}</td>
+                                        <td>{{data.patient.diagnostic_center}}</td>
+
+                                        <td>
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-secondary waves-effect">Manage</button>
+                                                <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-chevron-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                <li><a href="{% url 'healthapp:view_prescription' data.id %}" class="dropdown-item">View</a></li>
+                                                <li><a href="{% url 'healthapp:update_prescription' data.id %}" class="dropdown-item">Edit</a></li>
+                                                <li><a href="{% url 'healthapp:delete_prescription' data.id %}"class="dropdown-item">Delete</a></li>    
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   {% endfor %}                        
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <!-- <div class="btn-group">
+                        <button type="button" class="btn btn-purple waves-effect">PRINT</button>
+                        <button type="button" class="btn btn-dark waves-effect">PDF</button>
+                        <button type="button" class="btn btn-pink waves-effect">EXEL</button>
+                        <button type="button" class="btn btn-success waves-effect">CSV</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
